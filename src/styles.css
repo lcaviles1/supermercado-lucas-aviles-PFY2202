@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --color-canvas: #f4f6f3;
+  --color-ink: #172c25;
+  --color-muted: #51645c;
+  --color-line: #dce5dd;
+  --color-field-line: #809489;
+  --color-sidebar: #143b33;
+  --color-sidebar-muted: #bdcec6;
+  --color-brand: #24634f;
+  --color-brand-dark: #184838;
+  --color-brand-soft: #e6f1e9;
+  --color-lime: #d9eea7;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink antialiased;
+    min-width: 280px;
+  }
+
+  :is(a, button, input, select, textarea):focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+
+  aside :is(a, button):focus-visible {
+    @apply outline-lime;
+  }
+
+  button:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-white focus:p-3;
+  }
+
+  .nav-item {
+    @apply flex min-h-12 items-center justify-center gap-1.5 rounded-lg px-1.5 py-2 text-[0.7rem] font-semibold text-sidebar-muted hover:bg-white/10 hover:text-white sm:gap-2 sm:px-3 sm:text-sm lg:justify-start lg:gap-3;
+  }
+
+  .nav-item svg {
+    @apply shrink-0;
+  }
+
+  .nav-active, .nav-item[aria-current="page"] {
+    @apply bg-white/12 text-white;
+  }
+
+  .nav-count {
+    @apply shrink-0 rounded-full bg-lime px-1.5 py-0.5 text-[0.62rem] leading-none font-bold tabular-nums text-sidebar lg:ml-auto;
+  }
+
+  .eyebrow {
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.15em] text-brand;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-line bg-white shadow-[0_1px_3px_#172c2508];
+  }
+
+  .button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-transparent px-4 py-2 text-center text-sm font-semibold leading-5 transition-colors;
+  }
+
+  .button svg {
+    @apply shrink-0;
+  }
+
+  .button-primary {
+    @apply bg-brand text-white hover:bg-brand-dark;
+  }
+
+  .button-secondary {
+    @apply border-line bg-white text-ink hover:bg-brand-soft;
+  }
+
+  .icon-button {
+    @apply grid size-10 shrink-0 place-items-center rounded-lg text-muted hover:bg-red-50 hover:text-red-800;
+  }
+
+  .back-link {
+    @apply inline-flex min-h-8 items-center gap-2 rounded-sm text-sm font-semibold text-brand hover:text-brand-dark hover:underline;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] leading-4 font-semibold whitespace-nowrap;
+  }
+
+  .badge::before {
+    content: "";
+    @apply size-1.5 shrink-0 rounded-full bg-current;
+  }
+
+  .metric {
+    @apply flex min-w-0 flex-col items-start gap-2 rounded-2xl px-2.5 py-3 sm:flex-row sm:gap-3 sm:px-4 sm:py-4 md:gap-4 lg:gap-3 xl:gap-4 xl:px-5;
+  }
+
+  .metric-featured {
+    @apply border border-sidebar bg-sidebar text-white;
+  }
+
+  .metric-icon {
+    @apply grid size-8 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand sm:size-10 sm:rounded-xl xl:size-11;
+  }
+
+  .metric-featured .metric-icon {
+    @apply bg-lime text-sidebar;
+  }
+
+  .metric-label {
+    @apply text-[0.7rem] leading-4 font-semibold sm:text-sm;
+  }
+
+  .metric-note {
+    @apply hidden text-[0.72rem] leading-4 text-muted sm:block;
+  }
+
+  .metric-featured .metric-note {
+    @apply text-sidebar-muted;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-xs font-semibold text-ink;
+  }
+
+  .field {
+    @apply w-full min-h-11 rounded-lg border border-field-line bg-white px-3 py-2.5 text-base text-ink placeholder:text-muted sm:text-sm;
+  }
+
+  .field[aria-invalid="true"] {
+    @apply border-red-600;
+  }
+
+  .data-label {
+    @apply text-xs font-medium text-muted;
+  }
+
+  .data-value {
+    @apply mt-1 text-base font-semibold tabular-nums;
+  }
+
+  .stepper {
+    @apply inline-flex h-11 shrink-0 items-center rounded-lg border border-line bg-white;
+  }
+
+  .stepper button {
+    @apply grid size-10 shrink-0 place-items-center rounded-lg text-brand hover:bg-brand-soft disabled:text-muted/65 disabled:hover:bg-transparent;
+  }
+
+  .notice {
+    @apply flex items-start gap-2 rounded-lg bg-amber-50 px-3 py-2.5 text-sm leading-5 text-amber-950;
+  }
+
+  .notice svg {
+    @apply mt-0.5 shrink-0;
+  }
+
+  .notice-success {
+    @apply bg-brand-soft text-brand-dark;
+  }
+
+  .inventory-table {
+    @apply w-full border-t border-line text-left text-sm;
+  }
+
+  .inventory-table thead {
+    @apply bg-canvas text-xs text-muted;
+  }
+
+  .inventory-table :is(th, td) {
+    @apply px-2.5 py-3 align-middle first:pl-6 last:pr-6;
+  }
+
+  .inventory-table tbody tr {
+    @apply border-t border-line hover:bg-canvas/55;
+  }
+
+  .inventory-table th {
+    @apply font-semibold;
+  }
+
+  .inventory-name {
+    @apply w-[42%];
+  }
+
+  .mobile-cell-label {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .inventory-table, .inventory-table tbody {
+    display: block;
+  }
+
+  .inventory-table thead {
+    @apply sr-only;
+  }
+
+  .inventory-table tbody tr {
+    @apply grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-start gap-x-3 gap-y-2.5 px-4 py-3.5;
+  }
+
+  .inventory-table tbody td {
+    @apply block p-0;
+  }
+
+  .inventory-table .inventory-name {
+    @apply col-span-2 w-full;
+  }
+
+  .inventory-status {
+    @apply col-start-2 row-start-2 justify-self-end;
+  }
+
+  .inventory-category {
+    @apply col-start-1 row-start-2 self-center text-xs;
+  }
+
+  .mobile-cell-label {
+    @apply mb-0.5 block text-[0.68rem] font-medium text-muted;
+  }
+}
