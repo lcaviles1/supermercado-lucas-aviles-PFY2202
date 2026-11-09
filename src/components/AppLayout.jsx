@@ -81,7 +81,7 @@ export default function AppLayout() {
         </main>
 
         <footer className="mx-auto w-full max-w-[1380px] px-4 pb-5 text-xs leading-5 text-muted sm:px-8 xl:px-10">
-          Claudia Álvarez · con Lucas Avilés
+          Lucas Avilés
         </footer>
       </div>
     </div>

@@ -1,12 +1,10 @@
-# Exp1_S3_Claudia_Álvarez
+# Exp1_S3_Lucas_Avilés
 
 **Abasto** es un panel de supermercado para registrar artículos, consultar existencias por categoría y reservar unidades en un carrito. Proyecto de Desarrollo Frontend II (PFY2202), Experiencia 1, Semana 3, forma B.
 
-**Estudiante** · Claudia Álvarez
+**Estudiante** · Lucas Avilés
 
-**Colaboración** · Lucas Avilés
-
-[Abrir Abasto en GitHub Pages](https://lcaviles1.github.io/supermercado-claudia-alvarez-PFY2202/)
+[Abrir Abasto en GitHub Pages](https://lcaviles1.github.io/supermercado-lucas-aviles-PFY2202/)
 
 ## Ejecutar en local
 
